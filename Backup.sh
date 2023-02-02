@@ -43,12 +43,12 @@ select volume in ${volumes[@]}
                                 printf "done.\n"
 
                                 # Backup the user's Documents directory
-                                printf "Backing up $user's Desktop directory... "
+                                printf "Backing up $user's Documents directory... "
                                 # cp -R /Users/$user/Documents /Volumes/$volume/$user
                                 printf "done.\n"
 
                                 # Backup the user's Downloads directory
-                                printf "Backing up $user's Desktop directory... "
+                                printf "Backing up $user's Downloads directory... "
                                 # cp -R /Users/$user/Downloads /Volumes/$volume/$user
                                 printf "done.\n"
 
@@ -59,17 +59,20 @@ select volume in ${volumes[@]}
 
                                 break
                             else
-                                echo "Invalid input. Please try again."; break
-                            fi
-                        
+                                echo "Invalid input. Please try again.";
+                                break;
+                            fi   
                     done
                     
-                    echo "$user's data has now been backed up."
+                    echo "$user's data has now been backed up to $volume. Goodbye!"
                 break;;
 
                 [Nn]* ) 
                     echo "Exiting. Goodbye!"
-                exit;;
+                break;;
+                * ) echo "Invalid input. Please try again." >&2
+                # break;;
+                # exit;;
             esac
         else
             echo "Invalid input. Please try again."; break
