@@ -8,18 +8,24 @@ IFS="
 # Display the list of volumes currently mounted.
 volumes=$(ls -d /Volumes/* | cut -c10-)
 
-# Introduction Message
+# Initialization Introductory Message
 echo "
-###############################################################
-#         Welcome to the Mac Backup Utility script!           #
-#                                                             #
-# Please ensure that you mount the Data partition first       #
-# by opening Disk Utility and selecting the Data parition     #
-# after expanding the main Macintosh HD volume.               #
-#                                                             #
-# If prompted, insert the macOS login password to unlock the  #
-# FileVault encryption that is set on the volume.             #
-###############################################################
+################################################################
+#                                                              #
+#          Welcome to the Mac Backup Utility script!           #
+#                                                              #
+#  Please ensure that you mount the Data partition first       #
+#  by opening Disk Utility and selecting the Data parition     #
+#  after expanding the main Macintosh HD volume.               #
+#                                                              #
+#  This script requires an external volume to be plugged       #
+#  into the computer that will be used to back up the user's   #
+#  data to.                                                    #
+#                                                              #
+#  If prompted, insert the macOS login password to unlock the  #
+#  FileVault encryption that is set on the volume.             #
+#                                                              #
+################################################################
 "
 
 # Prompt which volume you wish to back up the user's data to.
@@ -74,7 +80,7 @@ select volume in ${volumes[@]}; do
 							echo "$user's data has now been backed up to $volume. Goodbye!"
 							break
 						else
-							echo "Invalid input. Please try again.";
+							echo "Invalid input. Please restart the script.";
 							break;
 						fi   
 					done
@@ -90,7 +96,7 @@ select volume in ${volumes[@]}; do
 			* ) echo "Invalid input. Please try again." >&2
 		esac
 	else
-		echo "Invalid input. Please try again."
+		echo "Invalid input. Please restart the script."
 		break
 	fi
 done
