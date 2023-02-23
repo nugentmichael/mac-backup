@@ -39,22 +39,22 @@ select volume in ${volumes[@]}
 
                                 # Backup the user's Desktop directory
                                 printf "Backing up $user's Desktop directory... "
-                                # cp -R /Users/$user/Desktop /Volumes/$volume/$user
+                                # cp -R /Volumes/Data/Users/$user/Desktop /Volumes/$volume/$user
                                 printf "done.\n"
 
                                 # Backup the user's Documents directory
                                 printf "Backing up $user's Documents directory... "
-                                # cp -R /Users/$user/Documents /Volumes/$volume/$user
+                                # cp -R /Volumes/Data/Users/$user/Documents /Volumes/$volume/$user
                                 printf "done.\n"
 
                                 # Backup the user's Downloads directory
                                 printf "Backing up $user's Downloads directory... "
-                                # cp -R /Users/$user/Downloads /Volumes/$volume/$user
+                                # cp -R /Volumes/Data/Users/$user/Downloads /Volumes/$volume/$user
                                 printf "done.\n"
 
                                 # Backup the user's Apple Notes directory that contains the SQLite file which stores the user's Apple Notes
                                 printf "Backing up $user's Apple Notes... "
-                                # cp -R /Users/$user/Library/Group Containers/group.com.apple.notes /Volumes/$volume/$user
+                                # cp -R /Volumes/Data/Users/$user/Library/Group Containers/group.com.apple.notes /Volumes/$volume/$user
                                 printf "done.\n"
 
                                 break
@@ -71,10 +71,9 @@ select volume in ${volumes[@]}
                     echo "Exiting. Goodbye!"
                 break;;
                 * ) echo "Invalid input. Please try again." >&2
-                # break;;
-                # exit;;
             esac
         else
-            echo "Invalid input. Please try again."; break
+            echo "Invalid input. Please try again."
+			break
         fi
 done
