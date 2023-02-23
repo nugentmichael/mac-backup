@@ -8,6 +8,21 @@ IFS="
 # Display the list of volumes currently mounted.
 volumes=$(ls -d /Volumes/* | cut -c10-)
 
+# Introduction Message
+echo "
+########################################################
+#      Welcome to the Mac Backup Utility script!       #
+#                                                      #
+# Please ensure that you mount the Data partition by   #
+# opening Disk Utility first and selecting the         #
+# Data parition after expanding the main               #
+# Macintosh HD volume.                                 #
+#                                                      #
+# If prompted, insert the macOS login password         #
+# to unlock the FileVault encryption set on the drive. #
+########################################################
+"
+
 # Prompt which volume you wish to back up the user's data to.
 PS3="Which external drive do you wish to back up the user's data to?`echo $'\n> '` "
 
