@@ -55,26 +55,26 @@ select volume in ${volumes[@]}; do
 							read -rep "We will now back up $user's files to $volume. Continue? Answer Y/y for Yes or N/n for No:`echo $'\n> '` " yn
 
 							# Create directory to store the user's backup data
-							# mkdir /Volumes/$volume/$user
+							mkdir /Volumes/$volume/$user
 
 							# Backup the user's Desktop directory
 							printf "Backing up $user's Desktop directory... "
-							# cp -R /Volumes/Data/Users/$user/Desktop /Volumes/$volume/$user
+							cp -R /Volumes/Data/Users/$user/Desktop /Volumes/$volume/$user
 							printf "done.\n"
 
 							# Backup the user's Documents directory
 							printf "Backing up $user's Documents directory... "
-							# cp -R /Volumes/Data/Users/$user/Documents /Volumes/$volume/$user
+							cp -R /Volumes/Data/Users/$user/Documents /Volumes/$volume/$user
 							printf "done.\n"
 
 							# Backup the user's Downloads directory
 							printf "Backing up $user's Downloads directory... "
-							# cp -R /Volumes/Data/Users/$user/Downloads /Volumes/$volume/$user
+							cp -R /Volumes/Data/Users/$user/Downloads /Volumes/$volume/$user
 							printf "done.\n"
 
 							# Backup the user's Apple Notes directory that contains the SQLite file which stores the user's Apple Notes
 							printf "Backing up $user's Apple Notes... "
-							# cp -R /Volumes/Data/Users/$user/Library/Group Containers/group.com.apple.notes /Volumes/$volume/$user
+							cp -R /Volumes/Data/Users/$user/Library/Group Containers/group.com.apple.notes /Volumes/$volume/$user
 							printf "done.\n"
 
 							echo "$user's data has now been backed up to $volume. Goodbye!"
